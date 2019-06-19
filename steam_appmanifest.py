@@ -20,20 +20,11 @@ def get_name() -> str:
 
 def get_installdir() -> str or None:
     while True:
-        get = input("Custom installdir? (False) ")
-        if get == "" or get.lower().startswith("f"):
-            return None
-        elif get.lower().startswith("t"):
-            break
-        else:
-            print("Input must be '(T)rue' or '(F)alse'\n")
-            
-    while True:
-        installdir = input("Enter installdir: ")
+        installdir = input("Enter installdir (optional): ")
         if installdir != "":
             return installdir
         else:
-            print("Installdir must not be blank.\n")
+            return None
 
 def create_manifest(appid: str, name: str, installdir: str):
     manifest = f"""\
